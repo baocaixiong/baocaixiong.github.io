@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://baocaixiong.github.io/"/>
-  <updated>2018-08-12T05:34:04.234Z</updated>
+  <updated>2019-01-22T10:30:42.506Z</updated>
   <id>https://baocaixiong.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ubuntu 解决语言设置错误的问题</title>
+    <link href="https://baocaixiong.github.io/2019/01/22/ubuntu%20%E8%A7%A3%E5%86%B3%E8%AF%AD%E8%A8%80%E8%AE%BE%E7%BD%AE%E9%94%99%E8%AF%AF%E7%9A%84%E9%97%AE%E9%A2%98/"/>
+    <id>https://baocaixiong.github.io/2019/01/22/ubuntu 解决语言设置错误的问题/</id>
+    <published>2019-01-22T10:28:00.000Z</published>
+    <updated>2019-01-22T10:30:42.506Z</updated>
+    
+    <content type="html"><![CDATA[<p>在使用 ubuntu 命令行登录的时候，出现：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">perl: warning: Setting locale failed.</span><br><span class="line">perl: warning: Please check that your locale settings:</span><br><span class="line">    LANGUAGE = (unset),</span><br><span class="line">    LC_ALL = (unset),</span><br><span class="line">    LC_MESSAGES = &quot;zh_CN.UTF-8&quot;,</span><br><span class="line">    LANG = &quot;zh_CN.UTF-8&quot;</span><br><span class="line">    are supported and installed on your system.</span><br><span class="line">perl: warning: Falling back to the standard locale (&quot;C&quot;).</span><br></pre></td></tr></table></figure><p>这样的错误，虽说不影响使用，但是感觉挺烦的说。</p><p>那么要如何解决呢，有必要记录下：</p><p>安装 localepurge 管理语言文件</p><p><code>sudo apt-get install localepurge</code></p><p>选择我们想要的语言，例如 <code>en_US.UTF-8</code> 和 <code>zh_CN.UTF-8</code>。</p><p>当然也可以使用以下命令再次进行配置：</p><p><code>sudo dpkg-reconfigure localepurge</code></p><p>生成自己想要的语言</p><p><code>sudo locale-gen zh_CN.UTF-8 en_US.UTF-8</code></p><p>打印出当前的配置信息</p><p><code>locale</code></p><p>到此，搞定！！！</p><p>默认情况下终端 ssh 的时候会将本地的 locale 传到服务器中，可以通过命令指定 ssh 服务器的语言：</p><p><code>LC_ALL=en_US.UTF-8 ssh &lt;host&gt;</code></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;在使用 ubuntu 命令行登录的时候，出现：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class
+      
+    
+    </summary>
+    
+    
+      <category term="ubuntu,语言设置" scheme="https://baocaixiong.github.io/tags/ubuntu-%E8%AF%AD%E8%A8%80%E8%AE%BE%E7%BD%AE/"/>
+    
+  </entry>
   
   <entry>
     <title>转转有书和多抓鱼体验</title>
