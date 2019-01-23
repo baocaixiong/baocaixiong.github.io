@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="baocaixiong">
 <meta property="og:description" content="今天在Go语言专栏读者群里，郝林问了一道题，请看下面的代码： 123456789101112131415161718192021222324252627282930313233343536373839404142package mainimport (	&quot;fmt&quot;)type TestStruct struct &amp;#123;	a int	b string&amp;#125;func (T *TestStru">
 <meta property="og:locale" content="zh">
-<meta property="og:updated_time" content="2019-01-23T06:30:52.222Z">
+<meta property="og:updated_time" content="2019-01-23T06:32:16.791Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Golang一道关于值传递和defer的题目">
 <meta name="twitter:description" content="今天在Go语言专栏读者群里，郝林问了一道题，请看下面的代码： 123456789101112131415161718192021222324252627282930313233343536373839404142package mainimport (	&quot;fmt&quot;)type TestStruct struct &amp;#123;	a int	b string&amp;#125;func (T *TestStru">
@@ -152,9 +152,11 @@
 <p>疑问一：为什么输出后缀为12、13的语句和输出后缀为10、11的语句的输出结果不一样？</p>
 <p>疑问二：输出后缀为2和3的内容中，为什么字段a的值依然是3？</p>
 <hr>
-<details><br>    <summary>第一个问题解答</summary><br>    因为 fmt.Println 在这里实为 defer 函数，defer 函数的参数在 defer 语句执行时会先被求值。注意 defer 语句执行的时机并不是函数即将结束的时候，而是 Go 编译器读到这条语句的时候。然而，defer 函数会在函数即将结束时执行。这时，当初对 T 和 *p 的求值结果（实际上都是 T）已经被复制并另行保存在专用的栈里了。所以你后边再通过 p 改变其中的字段值已经不会对它们产生任何影响了（它们与 T 已经完全是两个值了）。<br><br><details><br>    <summary>第二个问题解答</summary><br>    这也是值拷贝的问题，return语句被执行的时候，结果值会被复制和另存。如果函数返回的是普通的值的话，后边执行的defer函数再对原值进行改动就不关结果值的事了。它们已经是两个值了。<br></details>
+<details><br>    <summary>第一个问题解答</summary><br>    因为 fmt.Println 在这里实为 defer 函数，defer 函数的参数在 defer 语句执行时会先被求值。注意 defer 语句执行的时机并不是函数即将结束的时候，而是 Go 编译器读到这条语句的时候。然而，defer 函数会在函数即将结束时执行。这时，当初对 T 和 *p 的求值结果（实际上都是 T）已经被复制并另行保存在专用的栈里了。所以你后边再通过 p 改变其中的字段值已经不会对它们产生任何影响了（它们与 T 已经完全是两个值了）。<br></details>
 
-</details>
+<details><br>    <summary>第二个问题解答</summary><br>    这也是值拷贝的问题，return语句被执行的时候，结果值会被复制和另存。如果函数返回的是普通的值的话，后边执行的defer函数再对原值进行改动就不关结果值的事了。它们已经是两个值了。<br></details>
+
+
   </div>
 </article>
 
