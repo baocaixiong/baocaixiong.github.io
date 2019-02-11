@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="baocaixiong">
 <meta property="og:description" content="依赖范围控制哪些依赖在哪些classpath 中可用，哪些依赖包含在一个应用中。让我们详细看一下每一种范围： compile （编译范围） compile是默认的范围；如果没有提供一个范围，那该依赖的范围就是编译范围。编译范围依赖在所有的classpath中可用，同时它们也会被打包。 provided （已提供范围） provided 依赖只有在当JDK 或者一个容器已提供该依赖之后才使用。例如，">
 <meta property="og:locale" content="zh">
-<meta property="og:updated_time" content="2019-01-23T11:21:46.584Z">
+<meta property="og:updated_time" content="2019-01-30T06:37:25.060Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Maven依赖scope参数说明">
 <meta name="twitter:description" content="依赖范围控制哪些依赖在哪些classpath 中可用，哪些依赖包含在一个应用中。让我们详细看一下每一种范围： compile （编译范围） compile是默认的范围；如果没有提供一个范围，那该依赖的范围就是编译范围。编译范围依赖在所有的classpath中可用，同时它们也会被打包。 provided （已提供范围） provided 依赖只有在当JDK 或者一个容器已提供该依赖之后才使用。例如，">
@@ -27,12 +27,12 @@
         
         
           
-            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+            <link rel="icon" type="image/png" href="/images/favicon-128x128.png" sizes="192x192">
           
         
         
           
-            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-128x128.png">
           
         
     
@@ -105,7 +105,7 @@
 
     </div>
     <div id="toc">
-      
+      <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">import（导入）#</span></a></li></ol>
     </div>
   </span>
 </div>
@@ -131,7 +131,7 @@
       
         <time datetime="2019-01-23T06:11:00.000Z" itemprop="datePublished">2019-01-23</time>
         
-        (Updated: <time datetime="2019-01-23T11:21:46.584Z" itemprop="dateModified">2019-01-23</time>)
+        (Updated: <time datetime="2019-01-30T06:37:25.060Z" itemprop="dateModified">2019-01-30</time>)
         
       
     </div>
@@ -167,8 +167,9 @@
 <p>test范围依赖 在一般的编译和运行时都不需要，它们只有在测试编译和测试运行阶段可用。</p>
 <p><strong>system</strong> <strong>（系统范围）</strong></p>
 <p>system范围依赖与provided 类似，但是你必须显式的提供一个对于本地系统中JAR 文件的路径。这么做是为了允许基于本地对象编译，而这些对象是系统类库的一部分。这样的构件应该是一直可用的，Maven 也不会在仓库中去寻找它。如果你将一个依赖范围设置成系统范围，你必须同时提供一个 systemPath 元素。注意该范围是不推荐使用的（你应该一直尽量去从公共或定制的 Maven 仓库中引用依赖）。</p>
+<h5><span id="import-dao-ru">import（导入）</span><a href="#import-dao-ru" class="header-anchor">#</a></h5><p>仅在<code>&lt;dependencyManagement&gt;</code>部分中的类型为pom的依赖项上支持此作用域。它指示要使用指定<code>pom.xml</code>的<code>&lt;dependencyManagement&gt;</code>部分中的有效依赖项列表替换的依赖项。由于它们被替换，具有导入范围的依赖性实际上不参与限制依赖性的传递性。</p>
 <p><a href="http://blog.51cto.com/drizzlewalk/665590" target="_blank" rel="noopener">maven scope含义的说明</a></p>
-<p><a href="https://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html#Dependency_Scope" target="_blank" rel="noopener">Dependency Scope</a></p>
+<p><a href="https://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html#Dependency_Scope" target="_blank" rel="noopener">Dependency Scope</a> 英文Maven文档，更准确</p>
 
   </div>
 </article>
@@ -196,7 +197,7 @@
     </div>
 
     <div id="toc-footer" style="display: none">
-      
+      <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">import（导入）#</span></a></li></ol>
     </div>
 
     <div id="share-footer" style="display: none">
