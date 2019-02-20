@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="主机配置# deskmini 310 主机带电源 i3 8100 淘宝散片 阿斯加特 256G SSD，NVME 两条威刚XPG笔记本内存，8G 2440 ID-COOLING IS40X 散热器 BCM94352Z DW1560无线网卡，直接免驱  安装#BIOS设置（bios版本v3.1,升级3.4可能会装不上！）:  Load UEFI Defaults Advanced Onboard H">
+<meta name="keywords" content="黑苹果">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Deskmini310安装黑苹果">
+<meta property="og:url" content="https://baocaixiong.github.io/2019/02/20/Deskmini310安装黑苹果/index.html">
+<meta property="og:site_name" content="baocaixiong">
+<meta property="og:description" content="主机配置# deskmini 310 主机带电源 i3 8100 淘宝散片 阿斯加特 256G SSD，NVME 两条威刚XPG笔记本内存，8G 2440 ID-COOLING IS40X 散热器 BCM94352Z DW1560无线网卡，直接免驱  安装#BIOS设置（bios版本v3.1,升级3.4可能会装不上！）:  Load UEFI Defaults Advanced Onboard H">
+<meta property="og:locale" content="zh">
+<meta property="og:updated_time" content="2019-02-20T10:28:25.819Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Deskmini310安装黑苹果">
+<meta name="twitter:description" content="主机配置# deskmini 310 主机带电源 i3 8100 淘宝散片 阿斯加特 256G SSD，NVME 两条威刚XPG笔记本内存，8G 2440 ID-COOLING IS40X 散热器 BCM94352Z DW1560无线网卡，直接免驱  安装#BIOS设置（bios版本v3.1,升级3.4可能会装不上！）:  Load UEFI Defaults Advanced Onboard H">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-128x128.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-128x128.png">
+          
+        
+    
+    <!-- title -->
+    <title>Deskmini310安装黑苹果</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss -->
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">主页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/tags">标签</a></li>
+         
+          <li><a href="/categories">分类</a></li>
+        
+      </ul>
+    </span>
+    <br>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" href="/2019/01/23/Golang一道关于值传递和defer的题目/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://baocaixiong.github.io/2019/02/20/Deskmini310安装黑苹果/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://baocaixiong.github.io/2019/02/20/Deskmini310安装黑苹果/&text=Deskmini310安装黑苹果"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://baocaixiong.github.io/2019/02/20/Deskmini310安装黑苹果/&title=Deskmini310安装黑苹果"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://baocaixiong.github.io/2019/02/20/Deskmini310安装黑苹果/&is_video=false&description=Deskmini310安装黑苹果"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Deskmini310安装黑苹果&body=Check out this article: https://baocaixiong.github.io/2019/02/20/Deskmini310安装黑苹果/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://baocaixiong.github.io/2019/02/20/Deskmini310安装黑苹果/&title=Deskmini310安装黑苹果"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://baocaixiong.github.io/2019/02/20/Deskmini310安装黑苹果/&title=Deskmini310安装黑苹果"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://baocaixiong.github.io/2019/02/20/Deskmini310安装黑苹果/&title=Deskmini310安装黑苹果"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://baocaixiong.github.io/2019/02/20/Deskmini310安装黑苹果/&title=Deskmini310安装黑苹果"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://baocaixiong.github.io/2019/02/20/Deskmini310安装黑苹果/&name=Deskmini310安装黑苹果&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">主机配置#</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">安装#</span></a></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number"></span> <span class="toc-text">资源下载#</span></a>
+    </li></div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope="" itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        Deskmini310安装黑苹果
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+        <span itemprop="name">baocaixiong</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2019-02-20T10:15:27.000Z" itemprop="datePublished">2019-02-20</time>
+        
+        (Updated: <time datetime="2019-02-20T10:28:25.819Z" itemprop="dateModified">2019-02-20</time>)
+        
+      
+    </div>
+
+
+      
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/黑苹果/">黑苹果</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h4><span id="zhu-ji-pei-zhi">主机配置</span><a href="#zhu-ji-pei-zhi" class="header-anchor">#</a></h4><ul>
+<li>deskmini 310 主机带电源</li>
+<li>i3 8100 淘宝散片</li>
+<li>阿斯加特 256G SSD，NVME</li>
+<li>两条威刚XPG笔记本内存，8G 2440</li>
+<li>ID-COOLING IS40X 散热器</li>
+<li>BCM94352Z DW1560无线网卡，直接免驱</li>
+</ul>
+<h4><span id="an-zhuang">安装</span><a href="#an-zhuang" class="header-anchor">#</a></h4><p>BIOS设置（bios版本v3.1,升级3.4可能会装不上！）:</p>
+<ol>
+<li>Load UEFI Defaults</li>
+<li>Advanced<ul>
+<li>Onboard HD Audio: Enabled</li>
+<li>USB Configuration, XHCI Hand-off, Enabled</li>
+<li>Super IO Configuration, Serial Port, Disabled（必须）</li>
+</ul>
+</li>
+<li>Security Secure Boot, Disabled(by default)</li>
+<li>CSM打开 ，仅UEFI</li>
+</ol>
+<h2><span id="zi-yuan-xia-zai">资源下载</span><a href="#zi-yuan-xia-zai" class="header-anchor">#</a></h2><p>EFI ：<a href="https://www.chenweikang.top/wp-content/uploads/2018/11/Deskmini310_final_BCM94352z_AppleALC_CLOVER.zip" target="_blank" rel="noopener">Deskmini310_final_BCM94352z_AppleALC_CLOVER</a></p>
+<p>基于上边的EFI增加HDMI输出的配置：<a href="https://www.chenweikang.top/wp-content/uploads/2018/11/Deskmini310_DPHDMI_CLOVER.zip" target="_blank" rel="noopener">Deskmini310_DP+HDMI_CLOVER</a></p>
+<p>系统：<a href="https://mirrors.dtops.cc/iso/MacOS/daliansky_macos/" target="_blank" rel="noopener">macOS Mojave 10.14.1(18B75) Installer with Clover 4726.dmg</a></p>
+<p>参考了：<a href="https://github.com/YCF/Hackintosh-EFI-for-deskmini-310-i3-8100" target="_blank" rel="noopener">https://github.com/YCF/Hackintosh-EFI-for-deskmini-310-i3-8100</a></p>
+<p><strong>最后感谢 camgame及 群友们共同的努力，远景传送</strong>：<a href="http://bbs.pcbeta.com/forum.php?mod=viewthread&amp;tid=1799808&amp;extra=page%3D1%26filter%3Dtypeid%26typeid%3D1332%26typeid%3D1332" target="_blank" rel="noopener">http://bbs.pcbeta.com/forum.php?mod=viewthread&amp;tid=1799808&amp;extra=page%3D1%26filter%3Dtypeid%26typeid%3D1332%26typeid%3D1332</a></p>
+<p>欢迎加入Deskmini310 交流群：580456695</p>
+<p>转自<a href="https://www.chenweikang.top/" target="_blank" rel="noopener">左手代码右手诗</a> » <a href="https://www.chenweikang.top/?p=613" target="_blank" rel="noopener">华擎 Deskmini 310 黑苹果 Hackintosh Mojave 10.14.x 完美EFI</a>，留下记录随时翻阅</p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">主页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/tags">标签</a></li>
+         
+          <li><a href="/categories">分类</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">主机配置#</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">安装#</span></a></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number"></span> <span class="toc-text">资源下载#</span></a>
+    </li></div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://baocaixiong.github.io/2019/02/20/Deskmini310安装黑苹果/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://baocaixiong.github.io/2019/02/20/Deskmini310安装黑苹果/&text=Deskmini310安装黑苹果"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://baocaixiong.github.io/2019/02/20/Deskmini310安装黑苹果/&title=Deskmini310安装黑苹果"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://baocaixiong.github.io/2019/02/20/Deskmini310安装黑苹果/&is_video=false&description=Deskmini310安装黑苹果"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Deskmini310安装黑苹果&body=Check out this article: https://baocaixiong.github.io/2019/02/20/Deskmini310安装黑苹果/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://baocaixiong.github.io/2019/02/20/Deskmini310安装黑苹果/&title=Deskmini310安装黑苹果"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://baocaixiong.github.io/2019/02/20/Deskmini310安装黑苹果/&title=Deskmini310安装黑苹果"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://baocaixiong.github.io/2019/02/20/Deskmini310安装黑苹果/&title=Deskmini310安装黑苹果"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://baocaixiong.github.io/2019/02/20/Deskmini310安装黑苹果/&title=Deskmini310安装黑苹果"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://baocaixiong.github.io/2019/02/20/Deskmini310安装黑苹果/&name=Deskmini310安装黑苹果&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2019 baocaixiong
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">主页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/tags">标签</a></li>
+         
+          <li><a href="/categories">分类</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+    <!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+
+</body>
+</html>
