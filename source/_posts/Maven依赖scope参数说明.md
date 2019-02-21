@@ -31,8 +31,12 @@ test范围依赖 在一般的编译和运行时都不需要，它们只有在测
 
 system范围依赖与provided 类似，但是你必须显式的提供一个对于本地系统中JAR 文件的路径。这么做是为了允许基于本地对象编译，而这些对象是系统类库的一部分。这样的构件应该是一直可用的，Maven 也不会在仓库中去寻找它。如果你将一个依赖范围设置成系统范围，你必须同时提供一个 systemPath 元素。注意该范围是不推荐使用的（你应该一直尽量去从公共或定制的 Maven 仓库中引用依赖）。
 
+##### import（导入）
+
+仅在`<dependencyManagement>`部分中的类型为pom的依赖项上支持此作用域。它指示要使用指定`pom.xml`的`<dependencyManagement>`部分中的有效依赖项列表替换的依赖项。由于它们被替换，具有导入范围的依赖性实际上不参与限制依赖性的传递性。
+
 
 
 [maven scope含义的说明](http://blog.51cto.com/drizzlewalk/665590)
 
-[Dependency Scope](https://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html#Dependency_Scope)
+[Dependency Scope](https://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html#Dependency_Scope) 英文Maven文档，更准确
